@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    
+     .red {
+         color :red;
+     }
+     .green {
+         color:green;
+     }
+    
+    </style>
+</head>
+<body>
+
+    <input type="text">  <span>请输入你的用户名</span>
+
+
+
+    <script>
+
+
+
+
+    
+    var re = /^[\d-\w-_]{9}$/
+    var str = "aaas153_v"
+ console.log(re.test(str));
+
+var partern = /^[a-zA-Z0-9_-]{6,16}$/
+
+
+var str1 = 'sfddas45_-aa'
+console.log(partern.test(str1));
+
+var pattern = /^a[a-z]+s$/
+    var str2 = 'afsdfdfdas'
+    
+    console.log(pattern.test(str2));
+    
+    
+    
+    var input = document.querySelector('input');
+    var span = document.querySelector('span');
+    var partern1 = /^[a-zA-Z0-9_-]{6,16}$/
+    input.onblur = function(){
+        if(partern1.test(this.value)){
+            span.className="green";
+            span.innerHTML="您的输入正确"
+        }else{
+            span.className="red";
+            span.innerHTML="您的输入有误"
+        }
+    }
+
+     //过滤敏感词
+    var n= str6.replace(/gay/g,'**');
+
+    //替换空格的方法
+    var str5 = 'sdds s fs dfds sfds'
+  var n=  str5.replace(/\s/g,'');
+    
+     console.log(n);
+    
+    
+    </script>
+</body>
+</html>

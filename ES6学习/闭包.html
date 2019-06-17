@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+   <li>1个</li>
+   <li>2个</li>
+   <li>3个</li>
+   <li>4个</li>
+   <li>5个</li>
+
+
+
+
+
+    <script>
+    
+/*    function fun() {
+            var num = 0;
+            return function() {
+                console.log(num++);  
+            }
+        }
+        var f1 = fun();
+        f2=fun();
+        f1(); 
+        f1();
+        f2();
+  */
+
+
+
+
+
+
+    
+var lis = document.querySelectorAll('li')
+for(var i = 0 ; i<lis.length; i++){
+    (function(i){
+        lis[i].onclick = function(){
+            console.log(i);
+        }
+    })(i)
+
+       
+   
+}
+
+
+
+console.log(11);
+      
+for (var i =0; i<3;i++){
+   (function(abc){
+       setTimeout(function(){
+            console.log(abc);
+            
+       },0);
+   })(i)
+}
+
+console.log(22);
+
+
+
+
+
+
+
+
+function fg(n){
+   if(n==1){
+       return 1;
+   }
+   return n* fg(n-1);
+}
+
+   console.log(fg(100)); 
+
+
+
+function fun(n,o){
+    console.log(o);
+    return {
+        fun:function(m){
+            return fun(m,n)
+        }
+    };
+    
+}
+var a = fun(0);
+a.fun(1);
+a.fun(2);
+a.fun(3);
+
+var b = fun(0);
+b.fun(1);
+b.fun(2);
+b.fun(3);
+
+
+ 
+
+
+
+
+    </script>
+</body>
+</html>

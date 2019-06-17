@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+</head>
+<body>
+    <button>点赞(0)</button>
+    <button>点赞(0)</button>
+    <button>点赞(0)</button>
+    <button>点赞(0)</button>
+
+<script>
+var btn = document.querySelectorAll('button')
+function dian(value){
+    var value = 1;
+    return function(){
+       this.innerHTML = '点赞('+ (value++) +')'
+    }
+}
+
+
+for(var i = 0; i <btn.length; i++){
+    btn[i].onclick = dian();
+}
+
+
+console.log('start');
+for (var i = 0; i < 3; i++) {
+  (function (index) {
+    setTimeout(function () {
+      console.log(index);
+    }, 0);
+  })(i);
+}
+console.log('end');
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+      <script> 
+    //数组结构允许我们按照一一对应的关系从数组中提取值然后将值赋值给变量
+    let ary = [1,2,3,4]; 
+      
+   let [a,b,c,d,e] = ary; 
+
+//解构赋值就是把等式右边的值一一赋值给左边的变量
+
+
+    console.log(a);
+    console.log(b);  
+    console.log(c);  
+    console.log(d);  
+    console.log(e);  //undefined
+   //对象解构赋值   
+  let person = {name:'lisi',age:30,sex:'男'};    
+   let {name,age,sex} = person;  
+   // {name:name ,age:age , sex:sex} == {name,age,sex} 
+   //name:name  前者只是key值，后者才是变量
+      console.log(name);
+      console.log(age);
+      console.log(sex);
+      
+      
+      
+      
+      
+      </script>
+</body>
+</html>

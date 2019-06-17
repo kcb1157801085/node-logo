@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Person(name,age) {
+            this.name = name ;
+            this.age = age;
+        }
+    //构造函数的方法用prototype 原型对象创建，可以一次定义，多次调用，节省内存空间。
+        Person.prototype.say = () => {
+            console.log('are you ok!');
+        }
+    
+      var p  = new Person('小红',20);
+      console.log(p.__proto__);
+      console.log( Person.prototype);
+      
+
+
+
+   //第二题
+      var ss = 0;
+    Array.prototype.sum = arr => {
+       arr.forEach(value => {
+             ss+= value;
+       });
+       return ss;
+    }
+      var arr = [10,2,0,55,40];
+
+    console.log(arr.sum(arr));
+
+
+
+//第三题
+
+
+   function Father(money,cars,house,company){
+       this.money = money;
+       this.cars = cars;
+       this.house = house;
+       this.company = company;
+   }
+
+ Father.prototype.management =  () => {
+     console.log('我在管理一家公司');
+ }
+
+Son.prototype = new Father();
+Son.prototype.constructor = Son;
+
+function Son(money,cars,house,company) {
+    Father.call(this,money,cars,house,company);
+    
+    
+}
+
+
+var sn = new Son(1000, '大众','海景别墅','阿里巴巴');
+console.log(sn.money);
+sn.management();
+
+
+// 数组去重1
+var arr2 = [1,55,6,55,444,88,6,444,50,4];
+var arr3= arr2.filter((value,index) => {
+     return arr2.indexOf(value)==index;
+})
+console.log(arr3);
+// 数组去重2
+var arr4  = [1,55,6,55,444,88,6,444,50,4];
+var newArr = [];
+arr4.filter((value,index)=>{
+      if(newArr.indexOf(value)== -1){
+          newArr.push(value);
+      }
+})
+console.log(newArr);
+
+
+
+    </script>
+</body>
+</html>

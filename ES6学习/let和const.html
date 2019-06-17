@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//    let 用来声明变量 
+
+
+
+//  1、let声明的变量只在它所在的代码块有效--块级作用域。
+    {
+        let a = 10;
+        var b = 30;
+        console.log(a);  //10
+    }
+    console.log(b);    //  30
+    console.log(a);   //  not defined
+   
+//    2、不存在变量提升  
+    
+    // var 的情况
+console.log(foo); // 输出undefined
+var foo = 2;
+
+// let 的情况
+console.log(bar); // 报错ReferenceError
+let bar = 2;
+    
+    
+ //暂时性死区
+ var tmp = 123;
+
+if (true) {
+  tmp = 'abc'; // ReferenceError
+  let tmp;
+}
+/*上面代码中，存在全局变量tmp，但是块级作用域内let又声明了一个局部变量tmp，
+导致后者绑定这个块级作用域，所以在let声明变量前，对tmp赋值会报错。  */  
+
+
+ //let不允许在相同作用域内，重复声明同一个变量。   
+function func() {
+  let a = 10;
+  var a = 1;
+}
+
+// 报错
+function func() {
+  let a = 10;
+  let a = 1;
+}
+
+//因此，不能在函数内部重新声明参数。
+function func(arg) {
+  let arg;
+}
+func() // 报错
+
+function func(arg) {
+  {
+    let arg;
+  }
+}
+func() // 不报错
+
+
+var a = [];
+for (var i = 0; i < 10; i++) {
+  a[i] = function () {
+    console.log(i);
+  };
+}
+a[6](); // 10
+
+//因为let会创建6个块级作用域，所以结果为6
+
+var a = [];
+for (let i = 0; i < 10; i++) {
+  a[i] = function () {
+    console.log(i);
+  };
+}
+a[6](); // 6
+
+
+
+
+
+
+
+
+
+//const 常量   也具有块级作用域
+if(true){
+  const a = 10;
+  if(true){
+    const a = 20;
+    console.log(a);   //20
+    
+  }
+  console.log(a);  //10
+}
+console.log(a);   //undefined
+
+
+
+//注意声明常量一定要赋初始值
+const PI = 3.14;
+
+//常量声明后值不可改变
+// PI = 100;    报错
+
+
+
+const ary = [100,200];
+ary[0] =123;  //复杂数据类型内部的值可以更改，只是改变了堆中的内容，没改变地址
+//   ary = [1,2,3]    //不能改变栈中的地址  会报错
+
+
+
+
+//  var  let  const 区别
+
+/*
+var     函数级作用域     变量提升         值可改变
+let     块级作用域      不存在变量提升    值可改变
+const   块级作用域      不存在变量提升    值不能改变   用于值不能改变的情况
+*/
+
+
+
+
+
+
+    
+    </script>
+</body>
+</html>

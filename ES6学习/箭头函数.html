@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //函数体中只有一句代码，并且代码的执行结果就是函数的返回值，函数体大括号可以省略
+
+
+        const sum = (n1, n2) => n1 + n2;
+
+        const result = sum(10, 20);
+        console.log(result);
+
+        //如果函数体重有多句代码的时候一定要加大括号
+        var fv = 0;
+        const num = (n3, n4) => {
+            fv = n3 + n4;
+            return fv;
+        }
+
+        const res = num(45, 20);
+        console.log(res);
+
+
+
+
+
+        //如果形参只有一个 形参外面的小括号是可以省略的
+        let fn = v => {
+            alert(v);
+        }
+
+        fn(20);
+
+        //如果没有参数 一定要加小括号
+
+        const fa = () => {
+            console.log('dassad');
+
+        }
+        fa();
+
+        // 箭头函数不绑定this  箭头函数没有自己的this this关键字将指向箭头函数定义位置中的this
+
+        function fun() {
+            console.log(this);
+            return () => {
+                console.log(this);
+
+            }
+
+        }
+        var re = fun();
+        re();
+
+        const obj = {
+            name: 'zhangsan'
+        }
+
+        const rest = fun.call(obj); //箭头函数指向的是obj
+
+        //箭头函数的this看外层的是否有函数，如果有，外层函数的this就是内部箭头函数的this，如果没有，则this是window。
+        var objd = {
+            name: 'kobe',
+            age: 39,
+            fsd: () => {
+                console.log(this); //window
+            }
+
+        };
+
+        objd.fsd();
+
+
+// 在箭头函数中没有 arguments
+
+
+
+//剩余参数
+  const ssn = (...args) => {
+      let total = 0;
+      args.forEach(item => total += item)
+      return total;
+  }
+
+  console.log(ssn(1,5,3,8,7,99,4));
+  
+       
+    
+//  ...args (... 在函数里叫rest运算符)：在函数里面会把实参序列转换成一个数组，再将数组给函数体内进行运算
+
+//扩展运算符 ...  可以将数组或者对象转为用逗号分隔的参数序列
+
+let arra = [1,2,3,4,5];
+console.log( ...arra);  // 1,2,3,4,5  会把数组转换成它
+
+//扩展运算符可以应用于合并数组上
+
+let ary1 = [1,2,3];
+let ary2 = [4,5,6];
+let ary3 = [...ary1,...ary2];
+// 方法2
+// ary1.push(...ary2);
+console.log(ary3);
+
+//伪数组的转换成真数组
+var arrayLike = {
+    '0':'1',
+    '1':'2',
+    'length':2
+}
+
+ //from()  把伪数组转换成真数组
+var arrw = Array.from(arrayLike, item => item*2)
+console.log(arrw);
+
+// find() 查找第一个复合条件的成员，如果没有找到就返回undefined
+
+var fnds = [
+   {
+       id:1,
+       name:'张三'
+   },
+   {
+       id:2,
+       name:'李四'
+   }
+]
+
+let sassa = fnds.find(item => item.id==2);
+  console.log(sassa);    //这里打印的是一个对象
+  
+var newArray = fnds.filter( item=> item.id==2);
+ console.log(newArray);   //这里打印的是个数组
+ 
+// findIndex()  查找第一个符合条件成员的索引
+
+let gsf = [10,14,40,50,60]
+
+let index = gsf.findIndex(item => item>15);
+console.log(index);
+
+//  includes() 表示某个数组中是否包含给定的值，返回布尔值
+
+
+let fdsrg = ['a','b','c'];
+let reds = fdsrg.includes('a');
+console.log(reds);
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

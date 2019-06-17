@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    class Star {
+        constructor(uname,age){
+             this.uname = uname;
+             this.age = age;
+             console.log(this);   
+        }
+      song(sing){
+        console.log(this.uname+'唱过'+sing);
+      }
+
+
+    }
+    
+
+
+    //这里的this 和构造函数的指向一样 ，都是在创建实例对象的时候，指向创建对象的调用者
+    var ldh = new Star('刘德华',52);
+    var zxy = new Star('张学友',60);
+console.log(ldh.uname);
+
+ldh.song('冰雨');
+zxy.song('忘情水');
+
+class Father {
+    constructor(x,y){
+        this.x = x;
+        this.y = y;
+        console.log('father里面的this:',this);
+        
+    }
+    sum(){
+        console.log(this.x+this.y);
+        
+    }
+}
+class Son extends Father {
+    constructor(x,y,a,b){
+        //调用父类的构造函数super必须要放在子类this之前
+        super(x,y);
+        this.a = a;
+        this.b = b;
+        console.log('son里面的this:',this);
+    }
+    num(){
+        console.log(this.a-this.b);
+        
+    }
+}
+
+var son = new Son(10,5,10,6);
+son.sum();
+son.num();
+    </script>
+</body>
+</html>

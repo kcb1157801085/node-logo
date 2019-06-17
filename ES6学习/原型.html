@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      function Star(uname,age){
+          this.uname = uname;
+          this.age = age;
+          this.song = function(){
+              console.log('唱歌');
+              
+          }
+      }
+       //静态成员
+       Star.sex = '男'
+       //静态成员非要用构造函数调用
+console.log(Star.sex)
+
+    
+    var ldh = new Star('刘德华',52);
+    //实例成员
+    console.log(ldh.uname);
+    
+    
+
+
+//call()   有两种作用
+/*
+1、调用函数
+*/
+function fn(){
+   console.log(this);  //window
+   
+}
+//调用函数
+fn.call(obj);
+
+/*
+1、改变this 的指向
+*/
+
+var obj = {
+    name:'小王'
+}
+
+fn.call(obj)   //函数本来指向window  ，现在call之后就会指向 obj 对象
+
+
+
+
+
+
+
+   function Father(name,age){
+       this.name = name;
+       this.age = age;
+
+   }
+
+   Father.prototype.sum = function(){
+       console.log('hello world');
+   }
+
+
+Son.prototype = new Father(); 
+Son.prototype.construtor = Son;
+
+
+//call(‘参数1’，参数2，参数3)
+
+  function Son(name,age,scrll){
+       Father.call(this,name,age,scrll);
+      this.scrll = scrll;
+
+  }
+   
+
+
+var ss = new Son('小红',20);
+
+ss.sum();
+
+var  obj1 = {
+    name :'小红',
+    age:18,
+    height:30
+}
+Object.defineProperty(obj1,'num',{value:10000});
+
+console.log(obj1);
+
+var str = '小米'
+str.toLocaleLowerCase()
+console.log(str);
+    
+    </script>
+</body>
+</html>
